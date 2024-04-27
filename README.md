@@ -4,11 +4,12 @@
 # Depoly Link
 https://weather-app-main-azure.vercel.app/
 
+
 # Setup of projects
 
-# Just to download the file 
+# 1st step :After downloading the ZIP file 
 Do npm i
 
-# Tostart the project
+# 2nd step :To start the project
 write npm start
 
