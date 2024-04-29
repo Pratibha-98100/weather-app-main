@@ -25,53 +25,55 @@ function App() {
   console.log(weather)
   return (
     <div className="app">
-      <h1><b>Weather App</b></h1>
-      <div className="input-wrapper">
-        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} 
-        placeholder='Enter City Name' />
-        <button onClick={()=>getWeatherbyCity()}>
+        <h1><b>Weather App</b></h1>
+        <div className="input-wrapper">
+          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder='Enter City Name' />
+          <button onClick={()=>getWeatherbyCity()}>
           <Search></Search>
-        </button>
-      </div>
-
-      {weather && weather.weather && 
-      <div className="content">
-        
-        <div className="location d-flex">
-          <MapPin></MapPin>
-          <h2>{weather.name} <span>({weather.sys.country})</span></h2>
-        </div>
-        <p className="datetext">{renderDate()}</p>
-
-        <div className="weatherdesc d-flex flex-c">
-          <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
-          <h3>{weather.weather[0].description}</h3>
+          </button>
         </div>
 
-        <div >
-          <h1>{weather.main.temp} <span>&deg;C</span></h1>
-          <h3>Feels Like {weather.main.feels_like} <span>&deg;C</span></h3>
-        </div>
+      {
+          weather && weather.weather && 
+            <div className="content">
+              
+              <div className="location d-flex">
+                <MapPin></MapPin>
+                <h2>{weather.name} <span>({weather.sys.country})</span></h2>
+              </div>
+              <p className="datetext">{renderDate()}</p>
+
+              <div className="weatherdesc d-flex flex-c">
+                <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
+                <h3>{weather.weather[0].description}</h3>
+              </div>
+
+              <div >
+                <h1>{weather.main.temp} <span>&deg;C</span></h1>
+                <h3>Feels Like {weather.main.feels_like} <span>&deg;C</span></h3>
+              </div>
 
 
-        <div className="">
-          <h3>  Humidity : {weather.main.humidity} <span>%</span></h3>
-        </div>
+              <div className="">
+                <h3>  Humidity : {weather.main.humidity} <span>%</span></h3>
+              </div>
 
 
-        <div className="windstats d-flex">
-          <Wind></Wind>
-          <h3>Wind is {weather.wind.speed} Knots in {weather.wind.deg}&deg;</h3>
-        </div>
+              <div className="windstats d-flex">
+                <Wind></Wind>
+                <h3>Wind is {weather.wind.speed} Knots in {weather.wind.deg}&deg;</h3>
+              </div>
 
-      </div>
+            </div>
       }
 
-      {!weather.weather && <div className="content">
-        <h4>No Data found !</h4>
-      </div>}
-
-      {/* <p>{JSON.stringify(weather)}</p> */}
+      {
+           !weather.weather
+              && 
+        <div className="content">
+              <h4>Enter a city and click on search bar !</h4>
+        </div>
+      }
 
     </div>
   );
