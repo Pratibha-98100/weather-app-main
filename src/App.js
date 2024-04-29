@@ -25,7 +25,7 @@ function App() {
   console.log(weather)
   return (
     <div className="app">
-      <h1>Weather App</h1>
+      <h1><b>Weather App</b></h1>
       <div className="input-wrapper">
         <input type="text" value={city} onChange={(e) => setCity(e.target.value)} 
         placeholder='Enter City Name' />
